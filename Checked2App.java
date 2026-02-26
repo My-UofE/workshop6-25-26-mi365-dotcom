@@ -2,7 +2,7 @@
 // package to handle file streams
 import java.io.*;
 
-public class Checked1App{
+public class Checked2App{
     public static void main(String[] args) throws IO {
         System.out.println("### Enter main() ...");
 
@@ -10,7 +10,15 @@ public class Checked1App{
         String fileName = args[0];
 
         // read and print the file contents
-        readTxtFile(fileName);
+        try {
+            readTxtFile(fileName);
+        } catch (FileNotFoundException e) {
+            System.out.println("### FileNotFoundException caught"); 
+            System.out.println("### message: " + e.getMessage()); 
+        } catch (IOException e) {
+            System.out.println("### IOException caught"); 
+            System.out.println("### message: " + e.getMessage());
+        }
         
         // reached end of the file
         System.out.println("### Exit main()!");
