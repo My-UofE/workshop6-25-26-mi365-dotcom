@@ -8,19 +8,37 @@ public class Unchecked2App{
             s1 = args[0];
         }
         
-        methodA(s1);
+        try{
+            methodA(s1);
+        } catch (NullPointerException e){
+            System.out.println("### Exception caught: " + e.getClass().getName()); 
+            System.out.println("### Exception message: " + e.getMessage()); 
+        }
         System.out.println("### Exit main()!");
     }
 
     static void methodA(String s1){
         System.out.println("### Enter methodA() ...");
-        methodB(s1);
+        try{
+            methodB(s1);
+        } catch (NullPointerException e){
+            System.out.println("### Exception caught: " + e.getClass().getName()); 
+            System.out.println("### Exception message: " + e.getMessage()); 
+        }
         System.out.println("### Exit methodA()!");
     }
 
     static void methodB(String s1) {
         System.out.println("### Enter methodB() ...");
-        String s2 = s1.toUpperCase();
+
+        String s2 = null;
+
+        try{
+            s2 = s1.toUpperCase();
+        } catch (NullPointerException e){
+            System.out.println("### Exception caught: " + e.getClass().getName()); 
+            System.out.println("### Exception message: " + e.getMessage()); 
+        }
         System.out.println("s1: " + s1);   
         System.out.println("s2: " + s2);   
         System.out.println("### Exit methodB()!");
