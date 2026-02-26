@@ -8,6 +8,12 @@ public class Unchecked1App{
         if (args.length > 0) {
             s1 = args[0];
         }
+        try {
+            s2 = s1.toUpperCase();
+        } catch (NullPointerException e) {
+            System.out.println("### Exception caught: " + e.getClass().getName()); 
+            System.out.println("### Exception message: " + e.getMessage()); 
+        }
 
         s2 = s1.toUpperCase();
         
