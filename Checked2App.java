@@ -3,7 +3,7 @@
 import java.io.*;
 
 public class Checked2App{
-    public static void main(String[] args) throws IO {
+    public static void main(String[] args) throws IOException {
         System.out.println("### Enter main() ...");
 
         // get filename as specified in the command argument
